@@ -1,3 +1,27 @@
+
+Change the target port for service to 8080 as this is the port the camel app is listening to
+
+        spec:
+          clusterIP: 172.30.239.249
+          portalIP: 172.30.239.249
+          ports:
+          - name: 8778-tcp
+            port: 8778
+            protocol: TCP
+            targetPort: 8080
+          selector:
+            deploymentconfig: fis
+          sessionAffinity: None
+          type: ClusterIP
+        status:
+          loadBalancer: {}
+
+
+Test with this
+
+http://fis-fisdemo.cloudapps.demo.com/camel/hello?name=wohshon
+
+
 # CDI Camel Jetty QuickStart
 
 This example shows how to work with Camel in the Java Container using CDI to configure components,
